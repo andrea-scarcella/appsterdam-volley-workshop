@@ -10,7 +10,6 @@ import org.json.JSONObject;
 
 import wall.workshop.images.ImageCacheManager;
 import android.content.Context;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,7 +83,7 @@ public class WallAdapter extends ArrayAdapter<WallModel> {
 		}
 
 		// TODO: bindare dati con view
-		holder.text.setText(Html.fromHtml("<b>"+news.username+"</b>"+"<br/>"+news.text+"<br/>"+news.datecreation));
+		holder.text.setText(news.text);
 		holder.userImage.setImageUrl(news.avatar, ImageCacheManager.getInstance().getImageLoader());
 		
 		return convertView;

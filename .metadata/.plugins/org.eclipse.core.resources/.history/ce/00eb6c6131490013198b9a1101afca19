@@ -84,7 +84,7 @@ public class WallAdapter extends ArrayAdapter<WallModel> {
 		}
 
 		// TODO: bindare dati con view
-		holder.text.setText(Html.fromHtml("<b>"+news.username+"</b>"+"<br/>"+news.text+"<br/>"+news.datecreation));
+		holder.text.setText(Html.fromHtml("<b>"+news.username+"</b>"+"<br/>"+news.text+"</br>"+news.datecreation));
 		holder.userImage.setImageUrl(news.avatar, ImageCacheManager.getInstance().getImageLoader());
 		
 		return convertView;
