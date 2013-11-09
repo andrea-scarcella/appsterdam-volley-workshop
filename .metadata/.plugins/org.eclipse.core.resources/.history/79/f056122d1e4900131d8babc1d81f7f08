@@ -11,7 +11,6 @@
         android:id="@+id/editText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="username"
         android:ems="10" >
 
         <requestFocus />
@@ -22,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="password"
         android:inputType="textPassword" />
 
     <Button
