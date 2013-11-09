@@ -47,7 +47,7 @@ public class WallAdapter extends ArrayAdapter<WallModel> {
 	public WallModel getItem(int index) {
 		return this.posts.get(index);
 	}
-//invoked by framework
+
 	public View getView(int position, View convertView, ViewGroup parent) {
 
 		// Get item

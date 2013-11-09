@@ -47,7 +47,7 @@ public class WallAdapter extends ArrayAdapter<WallModel> {
 	public WallModel getItem(int index) {
 		return this.posts.get(index);
 	}
-//invoked by framework
+
 	public View getView(int position, View convertView, ViewGroup parent) {
 
 		// Get item
@@ -75,14 +75,14 @@ public class WallAdapter extends ArrayAdapter<WallModel> {
 
 			convertView.setTag(holder);
 		} else {
-			// cache view to object
+			//cache view to object
 			// Get the ViewHolder back to get fast access to the TextView
 			// and the ImageView.
 			holder = (ViewHolder) convertView.getTag();
 		}
 
 		// TODO: bindare dati con view
-		holder.text.setText(news.text);
+holder.text.setText(news.text);
 		return convertView;
 	}
 
