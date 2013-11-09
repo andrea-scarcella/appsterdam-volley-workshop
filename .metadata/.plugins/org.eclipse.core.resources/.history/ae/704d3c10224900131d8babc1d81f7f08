@@ -55,7 +55,7 @@ private void login(final String username,final String password){
 	@Override
 	public void onClick(View v) {	
 		//TODO:Login button
-		login(usernameInput.getText().toString(),passwordInput.getText().toString());
+		
 	}
 	
 }
