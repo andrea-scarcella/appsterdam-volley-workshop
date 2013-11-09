@@ -36,7 +36,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		passwordInput = (EditText) this.findViewById(R.id.passwordInput);
 
 		userImage.setImageUrl(
-				prefs.getString("avatar", MainApplication.defaultAvatar),
+				prefs.getString("Avatar", MainApplication.defaultAvatar),
 				ImageCacheManager.getInstance().getImageLoader());
 	}
 
