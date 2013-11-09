@@ -8,9 +8,9 @@ namespace WallBackend.Models
 {
 	public class LoginData
 	{
-		[Required("Username cannot be blank")]
+		[Required(AllowEmptyStrings=false)]
 		public string Username { get; set; }
-		[Required("Password cannot be blank")]
+		[Required(AllowEmptyStrings = false)]//("Password cannot be blank")]
 		public string Password { get; set; }
 	}
 }

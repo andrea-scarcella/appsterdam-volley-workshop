@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NHibernate.ByteCode.Castle</id>
+    <version>3.3.3.4000</version>
+    <title>NHibernate ByteCode Castle Unofficial</title>
+    <authors>tommarien</authors>
+    <owners>tommarien</owners>
+    <projectUrl>https://github.com/tommarien/NHibernate.ByteCode</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The Castle NHibernate proxy factory, this is an unofficial version which means it is not supported by the NHibernate team.</description>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <dependencies>
+      <dependency id="NHibernate" version="[3.3.3, 3.3.4)" />
+      <dependency id="Castle.Core" version="[3.2, 3.3)" />
+    </dependencies>
+    <references>
+      <reference file="NHibernate.ByteCode.Castle.dll" />
+    </references>
+  </metadata>
+</package>

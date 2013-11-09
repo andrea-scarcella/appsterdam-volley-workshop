@@ -1,0 +1,4 @@
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Core\bin\Debug\WallBackend.Core.dll
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Core\bin\Debug\WallBackend.Core.pdb
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Core\obj\Debug\WallBackend.Core.dll
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Core\obj\Debug\WallBackend.Core.pdb
