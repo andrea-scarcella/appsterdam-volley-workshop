@@ -22,12 +22,12 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
  
         setContentView(R.layout.activity_login);
         
-
-        //userImage = (NetworkImageView) this.findViewById(R.id.userImage);
-        buttonLogin = (Button) this.findViewById(R.id.buttonLogin);        
-        buttonLogin.setOnClickListener(this);
-        usernameInput = (EditText) this.findViewById(R.id.usernameInput);
-        passwordInput = (EditText) this.findViewById(R.id.passwordInput);
+//TODO: Creare layout!        
+//        userImage = (NetworkImageView) this.findViewById(R.id.userImage);
+//        buttonLogin = (Button) this.findViewById(R.id.buttonLogin);        
+//        buttonLogin.setOnClickListener(this);
+//        usernameInput = (EditText) this.findViewById(R.id.usernameInput);
+//        passwordInput = (EditText) this.findViewById(R.id.passwordInput);
     }
     
 

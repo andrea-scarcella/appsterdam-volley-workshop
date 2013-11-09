@@ -23,7 +23,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
         setContentView(R.layout.activity_login);
         
 
-        //userImage = (NetworkImageView) this.findViewById(R.id.userImage);
+        userImage = (NetworkImageView) this.findViewById(R.id.userImage);
         buttonLogin = (Button) this.findViewById(R.id.buttonLogin);        
         buttonLogin.setOnClickListener(this);
         usernameInput = (EditText) this.findViewById(R.id.usernameInput);
