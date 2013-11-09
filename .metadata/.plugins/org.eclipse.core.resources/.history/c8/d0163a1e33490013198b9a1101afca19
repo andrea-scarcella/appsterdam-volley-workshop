@@ -9,7 +9,6 @@ import org.json.JSONObject;
 
 import wall.workshop.images.ImageCacheManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -75,7 +74,6 @@ public class WallActivity extends BaseActivity implements OnClickListener {
 				dismissWait();
 				try {
 					JSONObject json = new JSONObject(response);
-					Log.d("Wall",response);
 					if (json.getBoolean("post") == true) {
 						text.setText("");
 						showToast(username + " postato");
@@ -91,7 +89,7 @@ public class WallActivity extends BaseActivity implements OnClickListener {
 			}
 		};
 
-		callVolley(MainApplication.postWall, response, params, WallActivity.this);
+		callVolley(MainApplication.login, response, params, WallActivity.this);
 
 	}
 

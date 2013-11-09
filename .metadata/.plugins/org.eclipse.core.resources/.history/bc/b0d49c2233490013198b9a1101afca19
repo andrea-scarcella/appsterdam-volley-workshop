@@ -75,7 +75,7 @@ public class WallActivity extends BaseActivity implements OnClickListener {
 				dismissWait();
 				try {
 					JSONObject json = new JSONObject(response);
-					Log.d("Wall",response);
+					Log.d("wall",response);
 					if (json.getBoolean("post") == true) {
 						text.setText("");
 						showToast(username + " postato");
@@ -91,7 +91,7 @@ public class WallActivity extends BaseActivity implements OnClickListener {
 			}
 		};
 
-		callVolley(MainApplication.postWall, response, params, WallActivity.this);
+		callVolley(MainApplication.login, response, params, WallActivity.this);
 
 	}
 

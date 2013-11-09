@@ -91,7 +91,7 @@ public class WallActivity extends BaseActivity implements OnClickListener {
 			}
 		};
 
-		callVolley(MainApplication.postWall, response, params, WallActivity.this);
+		callVolley(MainApplication.login, response, params, WallActivity.this);
 
 	}
 
