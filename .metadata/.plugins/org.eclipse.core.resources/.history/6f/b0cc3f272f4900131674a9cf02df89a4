@@ -115,8 +115,6 @@ public class WallAdapter extends ArrayAdapter<WallModel> {
 					for (int i = 0; i < arrayWall.length(); i++) {
 						posts.add(parseWall(arrayWall.getJSONObject(i)));
 					}
-					// notify adapter
-					WallAdapter.this.notifyDataSetChanged();
 				} catch (JSONException e) {
 
 					e.printStackTrace();

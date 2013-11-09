@@ -111,12 +111,10 @@ public class WallAdapter extends ArrayAdapter<WallModel> {
 				try {
 					JSONObject temp = new JSONObject(response);
 					JSONArray arrayWall = temp.getJSONArray("data");
-					// Parsing should be carried out on a separate thread
+					//Parsing should be carried out on a separate thread
 					for (int i = 0; i < arrayWall.length(); i++) {
-						posts.add(parseWall(arrayWall.getJSONObject(i)));
+						parseWall(arrayWall.getJSONObject(i));
 					}
-					// notify adapter
-					WallAdapter.this.notifyDataSetChanged();
 				} catch (JSONException e) {
 
 					e.printStackTrace();
