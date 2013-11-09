@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    
+    <dimen name="view_padding">16dp</dimen>
+    <dimen name="user_image">100dp</dimen>
+    <dimen name="edittextsize">150dp</dimen>
+
+</resources>

@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#bfbfbf"
+    tools:context=".WallActivity" >
+
+    <ListView
+        android:id="@+id/listViewPosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sendtextBox"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp" >
+    </ListView>
+
+    <RelativeLayout
+            android:id="@+id/sendtextBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#fff" >
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/userImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true" />
+
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignBottom="@+id/userImage"
+            android:layout_margin="2dp"
+            android:layout_toLeftOf="@+id/buttonSend"
+            android:layout_toRightOf="@+id/userImage"
+            android:background="@android:color/transparent"
+            android:maxLength="250"
+            android:textSize="14sp" >
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/buttonSend"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignBottom="@+id/userImage"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_sendnow" />
+    </RelativeLayout>
+
+</RelativeLayout>

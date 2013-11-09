@@ -1,0 +1,131 @@
+package wall.workshop;
+
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import wall.workshop.images.ImageCacheManager;
+import android.content.Context;
+import android.text.Html;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import com.android.volley.Request.Method;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.StringRequest;
+
+
+public class WallAdapter extends ArrayAdapter<WallModel> {
+	
+    private BaseActivity activity;
+	private Context context; 
+	private LayoutInflater mInflater; 
+	
+	public ArrayList<WallModel> posts; 
+	 
+	public WallAdapter(Context context, int textViewResourceId,ArrayList<WallModel> posts) {
+		super(context, textViewResourceId,posts);
+		this.posts = posts;
+		this.context = context;  
+		this.activity = (BaseActivity) context;
+		this.mInflater = LayoutInflater.from(context);  
+		getWall("NA");
+	}
+
+	
+
+	public int getCount() {
+		try{
+			return this.posts.size();
+		}catch(Exception e){ 
+			return 0;
+		}
+	}
+
+	public WallModel getItem(int index) {
+		return this.posts.get(index);
+	}
+
+	public View getView(int position, View convertView, ViewGroup parent) { 
+		
+				// Get item
+				final WallModel news = getItem(position);
+				
+				 
+					 
+				
+				// A ViewHolder keeps references to children views to avoid unneccessary calls
+		        // to findViewById() on each row.
+		        final ViewHolder holder;
+
+		        // When convertView is not null, we can reuse it directly, there is no need
+		        // to reinflate it. We only inflate a new View when the convertView supplied
+		        // by ListView is null.
+		        if (convertView == null) {
+		        	 
+		            // we want to bind data to.
+		            holder = new ViewHolder();
+		             
+		            convertView = mInflater.inflate(R.layout.list_item, null);
+		            holder.text = (TextView) convertView.findViewById(R.id.textView1); 
+		    	    holder.userImage = (NetworkImageView) convertView.findViewById(R.id.userImage); 
+		           
+		            convertView.setTag(holder);
+		        } else {
+		            // Get the ViewHolder back to get fast access to the TextView
+		            // and the ImageView.
+		            holder = (ViewHolder) convertView.getTag();
+		        }
+
+		        //TODO: bindare dati con view
+		         
+ 	     
+ 		 
+		return convertView;
+	}
+	 
+ 
+
+	static class ViewHolder {
+        
+        public TextView text; 
+        public NetworkImageView userImage; 
+         
+    }
+	
+	public void refresh(){
+		if(getCount()>0)
+		getWall(getItem(getCount()-1).datecreation);
+		else 
+			getWall("NA");
+	}
+
+private void getWall(final String datacreation){
+
+
+//TODO: ottenere bacheca, parsing del wall e aggiornamento adapter
+ 
+}
+
+private WallModel parseWall(JSONObject json) throws JSONException{
+	WallModel temp = new WallModel();
+	temp.avatar = json.getString("avatar");
+	temp.username = json.getString("username");
+	temp.datecreation = json.getString("datecreation");
+	temp.text = json.getString("text");
+	return temp;
+}
+	
+
+}
