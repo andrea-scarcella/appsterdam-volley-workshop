@@ -6,7 +6,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -64,14 +63,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		this.callVolley(MainApplication.login, response, map,
 				LoginActivity.this);
 
-	}
-
-	private void salvaLogin(String username, String password, String avatar) {
-		SharedPreferences.Editor editor = prefs.edit();
-		editor.putString("username", username);
-		editor.putString("password", password);
-		editor.putString("avatar", avatar);
-		editor.commit();
 	}
 
 	@Override
