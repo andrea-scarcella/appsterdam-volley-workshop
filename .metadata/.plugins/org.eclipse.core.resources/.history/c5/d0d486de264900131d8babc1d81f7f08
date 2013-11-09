@@ -6,13 +6,7 @@
     android:orientation="vertical"
     android:gravity="center|top"
     tools:context=".LoginActivity" >
-<com.android.volley.toolbox.NetworkImageView
-    android:id="@+id/userImage"
-    android:layout_width="80dp"
-    android:layout_height="80dp"
-    android:layout_margin="80dp">
-    
-</com.android.volley.toolbox.NetworkImageView>
+
     <EditText
         android:id="@+id/usernameInput"
         android:layout_width="match_parent"

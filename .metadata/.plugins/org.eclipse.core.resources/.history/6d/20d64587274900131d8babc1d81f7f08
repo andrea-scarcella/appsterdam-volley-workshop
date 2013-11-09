@@ -6,7 +6,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import wall.workshop.images.ImageCacheManager;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,10 +33,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		buttonLogin.setOnClickListener(this);
 		usernameInput = (EditText) this.findViewById(R.id.usernameInput);
 		passwordInput = (EditText) this.findViewById(R.id.passwordInput);
-
-		userImage.setImageUrl(
-				prefs.getString("Avatar", MainApplication.defaultAvatar),
-				ImageCacheManager.getInstance().getImageLoader());
 	}
 
 	private void login(final String username, final String password) {

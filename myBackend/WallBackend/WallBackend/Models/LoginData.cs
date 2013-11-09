@@ -10,6 +10,7 @@ namespace WallBackend.Models
 	{
 		[Required("Username cannot be blank")]
 		public string Username { get; set; }
+		[Required("Password cannot be blank")]
 		public string Password { get; set; }
 	}
 }

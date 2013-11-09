@@ -6,10 +6,8 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import wall.workshop.images.ImageCacheManager;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -29,15 +27,11 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 		setContentView(R.layout.activity_login);
 
-		userImage = (NetworkImageView) this.findViewById(R.id.userImage);
+		// userImage = (NetworkImageView) this.findViewById(R.id.userImage);
 		buttonLogin = (Button) this.findViewById(R.id.buttonLogin);
 		buttonLogin.setOnClickListener(this);
 		usernameInput = (EditText) this.findViewById(R.id.usernameInput);
 		passwordInput = (EditText) this.findViewById(R.id.passwordInput);
-
-		userImage.setImageUrl(
-				prefs.getString("Avatar", MainApplication.defaultAvatar),
-				ImageCacheManager.getInstance().getImageLoader());
 	}
 
 	private void login(final String username, final String password) {
@@ -53,16 +47,15 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 				// TODO:Login risposta
 				try {
-					Log.d("Wall", response);
+
 					// convert response to JSON (see notes/main activity)
 					JSONObject json = new JSONObject(response);
 					if (json.getBoolean("error") == true)
 						showToast("Errore");
-					else {
-						salvaLogin(username, password, json.optString("avatar",
-								MainApplication.defaultAvatar));
-						showToast("OK");
-					}
+					else
+						{
+						salvaLogin(username,password,json.optString("avatar",MainApplication.defaultAvatar));
+						showToast("OK");}
 
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
