@@ -1,0 +1,61 @@
+package wall.workshop;
+ 
+
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.android.volley.Response;
+import com.android.volley.toolbox.NetworkImageView;
+
+public class LoginActivity extends BaseActivity implements OnClickListener {
+	NetworkImageView userImage;
+	Button buttonLogin;
+	EditText usernameInput,passwordInput;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+ 
+        setContentView(R.layout.activity_login);
+        
+//TODO: Creare layout!        
+//        userImage = (NetworkImageView) this.findViewById(R.id.userImage);
+//        buttonLogin = (Button) this.findViewById(R.id.buttonLogin);        
+//        buttonLogin.setOnClickListener(this);
+//        usernameInput = (EditText) this.findViewById(R.id.usernameInput);
+//        passwordInput = (EditText) this.findViewById(R.id.passwordInput);
+    }
+    
+
+
+private void login(final String username,final String password){
+
+	
+
+	  Response.Listener<String> response =  new Response.Listener<String>() {
+
+	  		@Override
+	  		public void onResponse(String response) { 
+
+	  			//TODO:Login risposta
+	  		}
+	  	}; 
+	
+		    
+
+ 
+}
+
+
+
+	@Override
+	public void onClick(View v) {	
+		//TODO:Login button
+		
+	}
+	
+}
