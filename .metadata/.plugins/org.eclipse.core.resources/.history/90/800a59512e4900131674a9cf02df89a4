@@ -8,15 +8,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import wall.workshop.images.ImageCacheManager;
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.android.volley.Request.Method;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.StringRequest;
 
 public class WallAdapter extends ArrayAdapter<WallModel> {
 
@@ -103,27 +108,22 @@ public class WallAdapter extends ArrayAdapter<WallModel> {
 
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("datecreation", datacreation);
-		Response.Listener<String> response = new Response.Listener<String>() {
+  		@Override
+  		public void onResponse(String response) { 
 
-			@Override
-			public void onResponse(String response) {
-				activity.dismissWait();
-				try {
-					JSONObject temp = new JSONObject(response);
-					JSONArray arrayWall = temp.getJSONArray("data");
-					//Parsing should be carried out on a separate thread
-					for (int i = 0; i < arrayWall.length(); i++) {
-						parseWall(arrayWall.getJSONObject(i));
-					}
-				} catch (JSONException e) {
+  			 try {
 
-					e.printStackTrace();
-				}
 
+				
+			} catch (JSONException e) {
+				
+				e.printStackTrace();
 			}
-		};
+  			 
+  		}
+  	}; 
 
-		activity.callVolley(MainApplication.getWall, response, params, context);
+callVolley(MainApplication.getWall,response,params,LoginActivity.this);
 
 	}
 
