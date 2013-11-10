@@ -135,7 +135,7 @@ namespace WallBackend.Providers
 					User u = null;
 					if (q != null)
 					{
-						q.GetExecutableQueryOver(cfg.getSessionFactory().GetCurrentSession()).SingleOrDefault();
+						u=q.GetExecutableQueryOver(cfg.getSessionFactory().GetCurrentSession()).SingleOrDefault();
 					}
 
 					if (u != null)

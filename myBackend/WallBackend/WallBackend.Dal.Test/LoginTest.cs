@@ -15,12 +15,14 @@ namespace WallBackend.Dal.Test
 	[TestFixture]
 	public class LoginTest : TestBase
 	{
+		System.Web.Security.MembershipProvider p = null;
 		[SetUp]
 		public void Setup()
 		{
 			DalCfg = new DalConfiguration();
 			DalCfg.Configure();
 			SessionFactory = DalCfg.getSessionFactory();
+			p = new WallBackend.Providers.nHibernateMembershipProvider();
 		}
 		[Test]
 		public override void Can_generate_schema()
@@ -30,20 +32,22 @@ namespace WallBackend.Dal.Test
 		[Test]
 		public void Non_existing_account_returns_null()
 		{
-			System.Web.Security.MembershipProvider p = new WallBackend.Providers.nHibernateMembershipProvider();
+			 
 			User u = new User() { Username = "XXX", Password = "test" };
 			//session and transactions should be handled by provider implementation!
-			//using (var s = SessionFactory.OpenSession())
-			//{
-			//	using (var t = s.BeginTransaction())
-			//	{
 			MembershipUser u1 = p.GetUser(u.Username, false);
 			Assert.IsNull(u1);
-			//	}
-			//}
-
 		}
+		[Test]
+		public void Can_return_account() {
 
+			User u = new User() { Username = "test", Password = "test" };
+			//session and transactions should be handled by provider implementation!
+			MembershipUser u1 = p.GetUser(u.Username, false);
+			Assert.IsNotNull(u1);
+			Assert.AreEqual(u.Username, u1.UserName);
+			
+		}
 		[Test]
 		public void Can_create_account()
 		{
