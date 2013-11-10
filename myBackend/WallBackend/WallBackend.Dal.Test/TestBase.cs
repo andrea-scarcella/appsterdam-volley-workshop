@@ -12,6 +12,7 @@ namespace WallBackend.Dal.Test
 {
 	public class TestBase
 	{
+		protected DalConfiguration DalCfg { get; set; }
 		protected ISessionFactory SessionFactory { get; set; }
 		protected Configuration Cfg;
 		[Test]
@@ -21,7 +22,8 @@ namespace WallBackend.Dal.Test
 			//copy local=true!
 			//http://sarkies.blogspot.it/2010/07/could-not-create-driver-from.html
 			//je moet de stand 'Build action' voor elke mappingbestand op 'Embedded resource'  zetten!
-			new SchemaExport(Cfg).Execute(true, true, false);
+			DalCfg.getSchemaExport().Execute(true, true, false);
+			//new SchemaExport(Cfg).Execute(true, true, false);
 			//(false, true, false, false);
 		}
 	}

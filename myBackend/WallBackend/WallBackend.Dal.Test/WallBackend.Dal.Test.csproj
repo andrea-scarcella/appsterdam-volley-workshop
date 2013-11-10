@@ -40,7 +40,11 @@
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +70,10 @@
     <ProjectReference Include="..\WallBackend.Dal\WallBackend.Dal.csproj">
       <Project>{b2643eb6-6b44-4439-bd24-e8128f334388}</Project>
       <Name>WallBackend.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WallBackend.Providers\WallBackend.Providers.csproj">
+      <Project>{fc546839-6670-4dda-86c4-2dd8cb4bd4dc}</Project>
+      <Name>WallBackend.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

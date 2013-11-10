@@ -3,3 +3,16 @@ C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBacken
 C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\obj\Debug\WallBackend.Providers.csprojResolveAssemblyReference.cache
 C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\obj\Debug\WallBackend.Providers.dll
 C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\obj\Debug\WallBackend.Providers.pdb
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\App.config
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\WallBackend.Dal.dll
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\NHibernate.dll
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\WallBackend.Core.dll
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\Iesi.Collections.dll
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\Castle.Core.dll
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\WallBackend.Dal.pdb
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\NHibernate.xml
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\WallBackend.Core.pdb
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\NHibernate.ByteCode.Castle.pdb
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\Iesi.Collections.xml
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Providers\bin\Debug\Castle.Core.xml

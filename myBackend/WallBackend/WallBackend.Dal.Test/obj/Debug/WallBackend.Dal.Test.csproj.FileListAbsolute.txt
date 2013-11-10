@@ -19,3 +19,5 @@ C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBacken
 C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Dal.Test\bin\Debug\Castle.Core.xml
 C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Dal.Test\bin\Debug\App.config
 C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Dal.Test\bin\Debug\WallBackend.Dal.Test.dll.config
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Dal.Test\bin\Debug\WallBackend.Providers.dll
+C:\Users\andrea\Documents\GitHub\appsterdam-volley-workshop\myBackend\WallBackend\WallBackend.Dal.Test\bin\Debug\WallBackend.Providers.pdb
