@@ -13,26 +13,16 @@ namespace WallBackend.Providers
 {
 	public class nHibernateMembershipProvider : MembershipProvider
 	{
-		private DalConfiguration cfg = null;
-		private ISessionFactory sessionFactory = null;
+
 		private ISession currentSession { get; set; }
-		private void VerifySessionBound()
-		{
-			if (NHibernate.Context.CurrentSessionContext.HasBind(sessionFactory))
-			{
-				currentSession = sessionFactory.GetCurrentSession();
-			}
-			else
-			{
-				currentSession = sessionFactory.OpenSession();
-				NHibernate.Context.CurrentSessionContext.Bind(currentSession);
-			}
-		}
+
 		public nHibernateMembershipProvider()
 		{
-			cfg = new DalConfiguration();
-			cfg.Configure();
-			sessionFactory = cfg.getSessionFactory();
+			//issue in webapp, find a way to initialize 'currentSession'
+		}
+		public nHibernateMembershipProvider(ISession s)
+		{
+			currentSession = s;
 		}
 		public override string ApplicationName
 		{
@@ -69,13 +59,10 @@ namespace WallBackend.Providers
 			object providerUserKey,
 			out MembershipCreateStatus status)
 		{
-			VerifySessionBound();
+
 			status = MembershipCreateStatus.Success;
-
 			var args = new ValidatePasswordEventArgs(username, password, true);
-
 			this.OnValidatingPassword(args);
-
 			if (args.Cancel)
 			{
 				status = MembershipCreateStatus.InvalidPassword;
@@ -85,12 +72,7 @@ namespace WallBackend.Providers
 			WallMembershipUser u = null;
 			User u0 = new User() { Password = password, Username = username };
 			object currId = null;
-			using (var curt = currentSession.BeginTransaction())
-			{
-				currId = currentSession.Save(u0);//as WallMembershipUser;
-				curt.Commit();
-			}
-			//u = currentSession.Load(typeof(User), currId) as WallMembershipUser;
+			currId = currentSession.Save(u0);//as WallMembershipUser;
 			u0 = currentSession.Get<User>(currId);
 			u = new WallMembershipUser(u0.Username, u0.Password);
 			return u;
@@ -140,47 +122,20 @@ namespace WallBackend.Providers
 
 		public override MembershipUser GetUser(string username, bool userIsOnline)
 		{
-			VerifySessionBound();
 			MembershipUser outp = null;
-			//using (var tempSession = sessionFactory.OpenSession())
-			//{
-			//	using (var tempTransaction = tempSession.BeginTransaction())
-			//	{
 			QueryOver<User> q = QueryOver
 		.Of<User>()
 		.Where(c => c.Username == username);
 			User u = null;
 			if (q != null)
 			{
-				u = q.GetExecutableQueryOver(cfg.getSessionFactory().GetCurrentSession()).SingleOrDefault();
+				u = q.GetExecutableQueryOver(currentSession).SingleOrDefault();
 			}
-
 			if (u != null)
 			{
-				#region deprecated
-				//outp = new MembershipUser(
-				//	"",
-				//	username,
-				//	null,
-				//	null,
-				//	null,
-				//	null,
-				//	true,
-				//	false,
-				//	DateTime.Now,//creation date
-				//	DateTime.Now,//last login
-				//	DateTime.MinValue,//last activity
-				//	DateTime.MinValue,//last psw changed
-				//	DateTime.MinValue);//lockout 
-				#endregion
 				outp = new WallMembershipUser(u.Username, u.Password);
-
 			}
-			//	}
-			//}
-
 			return outp;
-			//throw new NotImplementedException();
 		}
 
 		public override MembershipUser GetUser(object providerUserKey, bool userIsOnline)

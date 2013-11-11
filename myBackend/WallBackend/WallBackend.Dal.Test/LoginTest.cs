@@ -22,7 +22,8 @@ namespace WallBackend.Dal.Test
 			DalCfg = new DalConfiguration();
 			DalCfg.Configure();
 			SessionFactory = DalCfg.getSessionFactory();
-			p = new WallBackend.Providers.nHibernateMembershipProvider();
+			Session = SessionFactory.OpenSession();
+			p = new WallBackend.Providers.nHibernateMembershipProvider(Session);
 			DalCfg.getSchemaExport().Drop(true, true);
 			DalCfg.getSchemaExport().Create(true, true);
 		}
@@ -46,6 +47,7 @@ namespace WallBackend.Dal.Test
 
 			User u = new User() { Username = "test", Password = "test" };
 			//session and transactions should be handled by provider implementation!
+			//sessions are shared by all objects taking part in a request
 			MembershipUser u1 = p.GetUser(u.Username, false);
 			Assert.IsNotNull(u1);
 			Assert.AreEqual(u.Username, u1.UserName);
@@ -58,15 +60,18 @@ namespace WallBackend.Dal.Test
 			User u = new User() { Username = "baz", Password = "baz" };
 			MembershipCreateStatus status;
 			MembershipUser mu = null;
-			//var s0 = SessionFactory.GetCurrentSession();
-			//using (var t0 = s0.BeginTransaction())
-			//{
-			mu = p.CreateUser(u.Username, u.Password, null, null, null, true, null, out status);
-			Assert.IsNotNull(mu);
-			Assert.AreEqual(u.Username, mu.UserName);
-			Assert.AreEqual(status, MembershipCreateStatus.Success);
-			//}
+			var s0 = Session;
+			using (var t0 = s0.BeginTransaction())
+			{
+				mu = p.CreateUser(u.Username, u.Password, null, null, null, true, null, out status);
+				Assert.IsNotNull(mu);
+				Assert.AreEqual(u.Username, mu.UserName);
+				Assert.AreEqual(status, MembershipCreateStatus.Success);
+				t0.Rollback();
+			}
 		}
+
+
 
 
 	}

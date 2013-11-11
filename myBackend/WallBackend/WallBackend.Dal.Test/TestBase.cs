@@ -12,6 +12,7 @@ namespace WallBackend.Dal.Test
 {
 	public class TestBase
 	{
+		protected NHibernate.ISession Session { get; set; }
 		protected DalConfiguration DalCfg { get; set; }
 		protected ISessionFactory SessionFactory { get; set; }
 		protected Configuration Cfg;
