@@ -23,6 +23,8 @@ namespace WallBackend.Dal.Test
 			DalCfg.Configure();
 			SessionFactory = DalCfg.getSessionFactory();
 			p = new WallBackend.Providers.nHibernateMembershipProvider();
+			DalCfg.getSchemaExport().Drop(true, true);
+			DalCfg.getSchemaExport().Create(true, true);
 		}
 		[Test]
 		public override void Can_generate_schema()
@@ -32,38 +34,38 @@ namespace WallBackend.Dal.Test
 		[Test]
 		public void Non_existing_account_returns_null()
 		{
-			 
+
 			User u = new User() { Username = "XXX", Password = "test" };
 			//session and transactions should be handled by provider implementation!
 			MembershipUser u1 = p.GetUser(u.Username, false);
 			Assert.IsNull(u1);
 		}
 		[Test]
-		public void Can_return_account() {
+		public void Can_return_account()
+		{
 
 			User u = new User() { Username = "test", Password = "test" };
 			//session and transactions should be handled by provider implementation!
 			MembershipUser u1 = p.GetUser(u.Username, false);
 			Assert.IsNotNull(u1);
 			Assert.AreEqual(u.Username, u1.UserName);
-			
+
 		}
 		[Test]
 		public void Can_create_account()
 		{
-			System.Web.Security.MembershipProvider p = new WallBackend.Providers.nHibernateMembershipProvider();
-			User u = new User() { Username = "test", Password = "Test" };
+			//System.Web.Security.MembershipProvider p = new WallBackend.Providers.nHibernateMembershipProvider();
+			User u = new User() { Username = "baz", Password = "baz" };
 			MembershipCreateStatus status;
 			MembershipUser mu = null;
-			using (var s = SessionFactory.OpenSession())
-			{
-				using (var t = s.BeginTransaction())
-				{
-					mu = p.CreateUser(u.Username, u.Password, null, null, null, true, null, out status);
-					Assert.IsNotNull(mu);
-					Assert.AreEqual(u.Username, mu.UserName);
-				}
-			}
+			//var s0 = SessionFactory.GetCurrentSession();
+			//using (var t0 = s0.BeginTransaction())
+			//{
+			mu = p.CreateUser(u.Username, u.Password, null, null, null, true, null, out status);
+			Assert.IsNotNull(mu);
+			Assert.AreEqual(u.Username, mu.UserName);
+			Assert.AreEqual(status, MembershipCreateStatus.Success);
+			//}
 		}
 
 

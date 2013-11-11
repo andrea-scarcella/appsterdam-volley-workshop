@@ -20,7 +20,7 @@ namespace WallBackend.Dal
 		protected static Configuration cfg;
 		protected static ISessionFactory sessionFactory;
 		protected static Type coreType;
-
+		protected static SchemaExport se;
 		public DalConfiguration()
 		{
 			//ugly but functional
@@ -28,10 +28,10 @@ namespace WallBackend.Dal
 		}
 
 		public ISessionFactory getSessionFactory() { return sessionFactory; }
-		public SchemaExport getSchemaExport() { return new SchemaExport(cfg); }
+		public SchemaExport getSchemaExport() { return se; }
 		public void Configure()
 		{
-			if (cfg==null)
+			if (cfg == null)
 			{
 				cfg = new Configuration();
 				var nhConfig = cfg.Proxy(proxy =>
@@ -52,7 +52,8 @@ namespace WallBackend.Dal
 				cfg.AddMapping(domainMapping);
 				cfg.CurrentSessionContext<NHibernate.Context.ThreadStaticSessionContext>();
 
-				sessionFactory = cfg.BuildSessionFactory(); 
+				sessionFactory = cfg.BuildSessionFactory();
+				se = new SchemaExport(cfg);
 			}
 
 
